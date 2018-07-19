@@ -22,13 +22,15 @@ Run `sudo nano /etc/modules` and append the following lines to the file:
 
 ```
 i2c-bcm2708 
-i2c-dev```
+i2c-dev
+```
 
 Install the necessary Python modules by running
 
 ```
 sudo apt-get install python-smbus
-sudo apt-get install i2c-tools```
+sudo apt-get install i2c-tools
+```
 
 Reboot using `sudo reboot`.
 
@@ -42,4 +44,5 @@ The issue can be fixed by changing this baudrate to 50kHz by running
 
 ```
 sudo modprobe -r i2c_bcm2708
-sudo modprobe i2c_bcm2708 baudrate=50000```
+sudo modprobe i2c_bcm2708 baudrate=50000
+```
