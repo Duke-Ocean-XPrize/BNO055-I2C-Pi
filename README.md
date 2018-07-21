@@ -1,7 +1,10 @@
-# BNO055-I2C-Pi
+# BNO055 I2C Communication with a Raspberry Pi using Python 2
 This tutorial was made and tested using a Raspberry Pi Model B V1.2 running Raspbian Stretch, but should work with other versions of Raspbian.
 Other versions of the Raspberry Pi may need to wire the circuit differently to correspond with the board's I2C pins.
 Based on [ghirlekar's implementation](https://github.com/ghirlekar/bno055-python-i2c).
+
+### NOTE: Currently depreciated in favour of Arduino I2C communication.
+This implementation for the BNO055 is no longer being used due to still reading faulty data occasionally depsite the alledged I2C bus fix for the Raspberry Pi. Most data retrieved with this method are usable, but using an [Arduino to communicate with the BNO055](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bno055-absolute-orientation-sensor.pdf) worked with no faulty data out of the box.
 
 ## Wiring
 
@@ -36,7 +39,7 @@ Reboot using `sudo reboot`.
 
 Test the I2C connection by connecting the BNO055 as shown above and then running `sudo i2cdetect -y 1`. Old Pis might need to instead run `sudo i2cdetect -y 0`.
 
-Because of an issue with clock stretching on the Raspberry Pi over I2C, the default I2C baudrate may result in unusable data or a failure to initialize communication with the BNO055. The issue is better described [here](https://github.com/ghirlekar/bno055-python-i2c/issues/1);
+Because of an issue with clock stretching on the Raspberry Pi over I2C, the default I2C baudrate may result in unusable data or a failure to initialize communication with the BNO055. The issue is better described [here](https://github.com/ghirlekar/bno055-python-i2c/issues/1).
 
 The current baudrate of the I2C bus can be found by running `sudo cat /sys/module/i2c_bcm2708/parameters/baudrate`
 
